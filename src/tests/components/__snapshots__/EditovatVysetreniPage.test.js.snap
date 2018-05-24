@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mel by vyrenderovat EditovatVysetreniPage 1`] = `
+<div>
+  Edituj lab vysetreni s id:  
+  2
+  <VysetreniForm
+    provedSubmitDoStore={[Function]}
+    vysetreniProEditaci={
+      Object {
+        "id": 2,
+        "kam": "Novy jicin",
+        "nazev": "cystatin C",
+        "odber": Array [
+          "plasma",
+        ],
+        "poznamka": "rychle",
+        "poznamkaOdd": "posilat rano",
+        "preanal": "standard",
+        "synonyma": Array [
+          "hem vychytavac",
+        ],
+        "upravenoKdy": 100,
+      }
+    }
+  />
+  <button
+    onClick={[Function]}
+  >
+    ODstranit
+  </button>
+</div>
+`;

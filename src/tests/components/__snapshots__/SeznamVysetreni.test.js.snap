@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mel by vyrenderovat <p> ze je seznam prazdny 1`] = `
+<div>
+  <h1>
+    Velky seznam vysetreni
+  </h1>
+  <p>
+    Seznam je prazdny
+  </p>
+</div>
+`;
+
+exports[`mel by vyrenderovat seznam s modelovymi daty 1`] = `
+<div>
+  <h1>
+    Velky seznam vysetreni
+  </h1>
+  <PolozkaVysetreni
+    id={1}
+    kam="krnov"
+    key="1"
+    nazev="hemopexin"
+    odber={
+      Array [
+        "serum",
+      ]
+    }
+    poznamka="pomalu"
+    poznamkaOdd="posilat rano"
+    preanal="profackat pacienta"
+    synonyma={
+      Array [
+        "hem vychytavac",
+      ]
+    }
+    upravenoKdy={40}
+  />
+  <PolozkaVysetreni
+    id={2}
+    kam="Novy jicin"
+    key="2"
+    nazev="cystatin C"
+    odber={
+      Array [
+        "plasma",
+      ]
+    }
+    poznamka="rychle"
+    poznamkaOdd="posilat rano"
+    preanal="standard"
+    synonyma={
+      Array [
+        "hem vychytavac",
+      ]
+    }
+    upravenoKdy={100}
+  />
+  <PolozkaVysetreni
+    id={3}
+    kam="krnov"
+    key="3"
+    nazev="haptoglobin"
+    odber={
+      Array [
+        "serum",
+        "plasma",
+      ]
+    }
+    poznamka="rychle"
+    poznamkaOdd="posilat rano"
+    preanal="standard"
+    synonyma={
+      Array [
+        "hemoglobin vychytavac",
+        "hapt",
+      ]
+    }
+    upravenoKdy={80}
+  />
+</div>
+`;

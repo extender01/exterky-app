@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mel by vyrenderovat form i s modelovyma datama 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      placeholder="Nazev vysetreni"
+      type="text"
+      value="haptoglobin"
+    />
+    <input
+      onChange={[Function]}
+      placeholder="Kam to jede"
+      type="text"
+      value="krnov"
+    />
+    <button>
+      PRIDEJ DO DB
+    </button>
+  </form>
+</div>
+`;
+
+exports[`mel by vyrenderovat prazdny form 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      placeholder="Nazev vysetreni"
+      type="text"
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      placeholder="Kam to jede"
+      type="text"
+      value=""
+    />
+    <button>
+      PRIDEJ DO DB
+    </button>
+  </form>
+</div>
+`;
+
+exports[`pri prazdnem submitu by mel hodit error 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      placeholder="Nazev vysetreni"
+      type="text"
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      placeholder="Kam to jede"
+      type="text"
+      value=""
+    />
+    <button>
+      PRIDEJ DO DB
+    </button>
+  </form>
+</div>
+`;
+
+exports[`pri prazdnem submitu by mel hodit error 2`] = `
+<div>
+  <p>
+    error: nazev nebo amount chybi, dopln vole
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      placeholder="Nazev vysetreni"
+      type="text"
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      placeholder="Kam to jede"
+      type="text"
+      value=""
+    />
+    <button>
+      PRIDEJ DO DB
+    </button>
+  </form>
+</div>
+`;
