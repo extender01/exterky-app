@@ -28,59 +28,6 @@ store.subscribe(() => {
     console.log(store.getState());
 });
 
-const vysetreniJedna = store.dispatch(pridatVysetreni({
-    nazev: "ACTH",
-    synonyma: ["hormon takovy", "hormon makovy"],
-    kam: "Krnov",
-    odber: ["serum", "EDTA plasma", "LiHEP plasma"],
-    preanal: "odebrat stocit chladit",
-    poznamka: "blablabla",
-    poznamkaOdd: "poznamka od oddeleni",
-    upravenoKdy: 500
-}));
-
-const vysetreniDva = store.dispatch(pridatVysetreni({
-    nazev: "Zombrex",
-    synonyma: ["nejaka blbost na ledviny", "marker ledvin C"],
-    kam: "Novy Jicin",
-    odber: ["serum", "EDTA plasma", "LiHEP plasma"],
-    preanal: "odebrat stocit chladit",
-    poznamka: "blablabla",
-    poznamkaOdd: "poznamka od oddeleni",
-    upravenoKdy: 200
-}));
-
-
-const vysetreniTri = store.dispatch(pridatVysetreni({
-    nazev: "Cystatin C",
-    synonyma: ["nejaka blbost na ledviny", "marker ledvin C"],
-    kam: "Novy Jicin",
-    odber: ["serum", "EDTA plasma", "LiHEP plasma"],
-    preanal: "odebrat stocit chladit",
-    poznamka: "blablabla",
-    poznamkaOdd: "poznamka od oddeleni",
-    upravenoKdy: 800
-}));
-
-const vysetreniCtyri = store.dispatch(pridatVysetreni({
-    nazev: "Cystatin A",
-    synonyma: ["nejaka blbost na ledviny", "marker ledvin C"],
-    kam: "Novy Jicin",
-    odber: ["serum", "EDTA plasma", "LiHEP plasma"],
-    preanal: "odebrat stocit chladit",
-    poznamka: "blablabla",
-    poznamkaOdd: "poznamka od oddeleni",
-    upravenoKdy: 300
-}));
-
-// store.dispatch(odstranitVysetreni(vysetreniJedna.vysetreni.id));
-// store.dispatch(filtrovatText("c"));
-
-
-//ulozeni state celeho redux store do promenne a pak aplikovani funkce filtrovani a zobrazeni v konzoli
-const state = store.getState();
-console.log(filtrovaneVysetreni(state.vysetreni, state.filtry));
-
 
 const jsx = (
     <Provider store={store}>
