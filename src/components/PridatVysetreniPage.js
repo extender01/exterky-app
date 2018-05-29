@@ -1,7 +1,7 @@
 import React from "react";
 import VysetreniForm from "./VysetreniForm";
 import { connect } from "react-redux";
-import { pridatVysetreni } from "../actions/vysetreniActions";
+import { startPridatVysetreni } from "../actions/vysetreniActions";
 
 
 export class PridatVysetreniPage extends React.Component {
@@ -32,7 +32,7 @@ export class PridatVysetreniPage extends React.Component {
    
 const mapDispatchToProps = (dispatch) => {
     return {
-        provedDispatchPridatVysetreni: (objektUdajuZFormulare) => dispatch(pridatVysetreni(objektUdajuZFormulare))
+        provedDispatchPridatVysetreni: (objektUdajuZFormulare) => dispatch(startPridatVysetreni(objektUdajuZFormulare))
     };
 };
    
