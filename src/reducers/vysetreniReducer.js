@@ -21,6 +21,9 @@ const vysetreniReducer = (state = vysetreniReducerDefaultState, action) => {
             return state.filter((item) => {
                 return item.id !== action.id ;  //filtrem projdou polozky jejichz id se nerovna tomu z action objektu vyslaneho pres dispatch
             });
+
+        case "VYCUCAT_VYSETRENI":
+            return action.vysetreni;
         default:
             return state;
     }

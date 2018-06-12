@@ -1,18 +1,18 @@
 import React from "react";
 import  { connect } from "react-redux";
 import VysetreniForm from "./VysetreniForm";
-import { editovatVysetreni, odstranitVysetreni } from "../actions/vysetreniActions";
+import { startEditovatVysetreni, startOdstranitVysetreni } from "../actions/vysetreniActions";
 
 
 export class EditovatVysetreniPage extends React.Component {
     priEditaci = (objektUdajuZFormulare) => {
-        this.props.editovatVysetreni(this.props.vybraneVysetreni.id, objektUdajuZFormulare);
+        this.props.startEditovatVysetreni(this.props.vybraneVysetreni.id, objektUdajuZFormulare);
         this.props.history.push("/");
     };
 
 
     priOdstraneni = () => {
-        this.props.odstranitVysetreni(this.props.vybraneVysetreni.id);
+        this.props.startOdstranitVysetreni(this.props.vybraneVysetreni.id);
         this.props.history.push("/");
     };
 
@@ -48,8 +48,8 @@ const mapStateToProps = (state,props) => {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    editovatVysetreni: (idGen, vysetreniGen) => dispatch(editovatVysetreni(idGen, vysetreniGen)),
-    odstranitVysetreni: (objektsIdPropertyGen) => dispatch(odstranitVysetreni(objektsIdPropertyGen))
+    startEditovatVysetreni: (idGen, vysetreniGen) => dispatch(startEditovatVysetreni(idGen, vysetreniGen)),
+    startOdstranitVysetreni: (objektsIdPropertyGen) => dispatch(startOdstranitVysetreni(objektsIdPropertyGen))
 });
 
 

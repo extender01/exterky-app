@@ -15,7 +15,7 @@ export default class VysetreniForm extends React.Component {
         odber: [],
         preanal: "",
         error: "",
-        upravenoKdy: props.vysetreniProEditaci ? props.vysetreniProEditaci.upravenoKdy : moment(),
+       // upravenoKdy: props.vysetreniProEditaci ? props.vysetreniProEditaci.upravenoKdy : moment(),
         
         
     };
@@ -50,7 +50,7 @@ export default class VysetreniForm extends React.Component {
             this.props.provedSubmitDoStore({
                 nazev: this.state.nazev,
                 kam: this.state.kam,
-                upravenoKdy: this.state.upravenoKdy
+               // upravenoKdy: this.state.upravenoKdy
             });
         }
         console.log(this.state.error);

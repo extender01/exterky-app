@@ -12,11 +12,12 @@ console.log(validator.isEmail("ahoooooj@asf.com")); */
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import AppRouter from "./routers/AppRouter";
+import AppRouter, {history} from "./routers/AppRouter";
 import store from "./store/configureStore";
-import { pridatVysetreni, odstranitVysetreni } from "./actions/vysetreniActions";
+import { startVycucatVysetreni } from "./actions/vysetreniActions";
 import { filtrovatText } from "./actions/filtryActions";
 import filtrovaneVysetreni from "./selectors/vysetreniSelector";
+import { firebase } from "./firebase/firebase";
 import "normalize.css/normalize.css"
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
@@ -37,5 +38,37 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById("app"));
+
+//fce aby se aplikace renderovala jen jednou
+let hasRendered = false;
+const renderApp = () => {
+    if (!hasRendered) {
+        ReactDOM.render(jsx, document.getElementById("app"));
+        hasRendered = true;
+    }
+}
+
+ReactDOM.render(<p>Loading</p>, document.getElementById("app"));
+
+
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        console.log("log in", user.email)
+        store.dispatch(startVycucatVysetreni()).then(() => {
+            renderApp();
+            
+            //history.location.pathname je soucasna url kde ted jsme - pokud jsme na domaci login page, tak presmeruj na dashboard page
+            if (history.location.pathname === "/login") {
+                history.push("/");
+            }
+        });
+
+    } else {
+        console.log("log out");
+        renderApp();
+        history.push("/login");
+    }
+  });
+
 
