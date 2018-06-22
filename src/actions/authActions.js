@@ -1,7 +1,15 @@
 import { firebase } from "../firebase/firebase";
 
 
-export const prihlasit = (login, password) => {
+
+
+export const prihlasit = (email) => ({
+  type: "LOGIN",
+  email
+});
+
+
+export const startPrihlasit = (login, password) => {
   return () => {
     console.log("pokus o prihlaseni");
     return firebase.auth().signInWithEmailAndPassword(login, password)
@@ -23,7 +31,12 @@ export const prihlasit = (login, password) => {
 }
 
 
-export const odhlasit = () => {
+export const odhlasit = () => ({
+  type: "LOGOUT"
+});
+
+
+export const startOdhlasit = () => {
   return () => {
     return firebase.auth().signOut().then(() => {
         console.log("uzivatel odhlasen")

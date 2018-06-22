@@ -8,6 +8,7 @@ import HelpPage from "../components/HelpPage";
 import NotFoundPage from "../components/NotFoundPage";
 import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
+import DetailVysetreniPage from "../components/DetailVysetreniPage";
 
 
 //abychom mohli k history pristupovat nejen z komponent, kde to zarizuje react-router, tak si udelame vlastni history z modulu history, ktera jde pouzit vsude
@@ -20,6 +21,7 @@ const AppRouter = () => (
         <Header />
         <Switch>
             <Route path="/" component={VysetreniDashboardPage} exact={true} />
+            <Route path="/detail/:id" component={DetailVysetreniPage} />
             <Route path="/create" component={PridatVysetreniPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/edit/:id" component={EditovatVysetreniPage} />

@@ -24,6 +24,7 @@ export class PridatVysetreniPage extends React.Component {
 
 
             provedSubmitDoStore={this.pridatVysetreniPakPresmerovat}
+            uzivatel={this.props.uzivatel}
         />
         </div>
         );
@@ -35,9 +36,15 @@ const mapDispatchToProps = (dispatch) => {
         provedDispatchPridatVysetreni: (objektUdajuZFormulare) => dispatch(startPridatVysetreni(objektUdajuZFormulare))
     };
 };
+
+const mapStateToProps = (state) => {
+    return {
+        uzivatel: state.auth.uid
+    };
+};
    
 
 
 
 
-export default connect(undefined, mapDispatchToProps)(PridatVysetreniPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PridatVysetreniPage);

@@ -47,8 +47,11 @@ module.exports = (env) => {
             }
           ]
         })
-      }]
+      },
+      
+    ]
     },
+    
     plugins: [
       CSSExtract,
       new webpack.DefinePlugin({

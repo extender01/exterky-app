@@ -7,7 +7,7 @@ import VysetreniFiltrovaciInput from "./VysetreniFiltrovaciInput";
 
 const VysetreniDashboardPage = () => (
     <div>
-        <h4>Tohle je dashboard</h4>
+       
         <VysetreniFiltrovaciInput />
         <SeznamVysetreni />
     </div>

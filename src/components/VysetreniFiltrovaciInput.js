@@ -22,19 +22,29 @@ export class VysetreniFiltrovaciInput extends React.Component {
 
     render() {
         return (
-            <div>
-                <input type="text" value={this.props.filtry.text} onChange={this.priFiltrovani} />
+            <div className="content-container">
+                <div className="input-group">
+                    <div className="input-group__item">
+                        <input type="text" value={this.props.filtry.text} onChange={this.priFiltrovani} />
+                    </div>
+
+                    <div className="input-group__item">
+                        <select 
+                            value={this.props.filtry.razeni}
+                            onChange={this.priZmeneRazeni}    
+                        >
+                            <option value="a">Od A</option>
+                            <option value="z">Od Z</option>
+                            <option value="nejnovejsi">Nejnovejsi</option>
+                            <option value="nejstarsi">Nejstarsi</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
         
                 
-                <select 
-                    value={this.props.filtry.razeni}
-                    onChange={this.priZmeneRazeni}    
-                >
-                    <option value="a">Od A</option>
-                    <option value="z">Od Z</option>
-                    <option value="nejnovejsi">Nejnovejsi</option>
-                    <option value="nejstarsi">Nejstarsi</option>
-                </select>
+                
             </div>
         );
     };

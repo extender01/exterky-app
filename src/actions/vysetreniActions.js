@@ -20,16 +20,18 @@ export const startPridatVysetreni = (vysetreniData) => {
 
         const {
             nazev = "",
-            synonyma = [],
+            synonyma = "",
             nazevAk = "",
-            skAk = [],
+            skAk = "",
             kam = "",
             kdy = "",
             odber = [],
             preanal = "",
-            preanalLab = "",
             poznamka = "",
-            poznamkaOdd = "",
+            poznamkaOdd = {},
+            labKdoOdesila = "",
+            labPreanal = "",
+            labPoznamka = "",
             provadiSe = "",
             odezvaDo = "",
             metodika = "",
@@ -37,11 +39,14 @@ export const startPridatVysetreni = (vysetreniData) => {
             odbornost = ""
         } = vysetreniData;
 
-        const vysetreni = {nazev, synonyma, nazevAk, skAk, kam, kdy, odber, preanal, preanalLab, poznamka, poznamkaOdd, provadiSe, odezvaDo, metodika, jednotka, odbornost}
+        console.log(poznamkaOdd);
+        const vysetreni = {nazev, synonyma, nazevAk, skAk, kam, kdy, odber, preanal, poznamka, labKdoOdesila, labPreanal, labPoznamka, provadiSe, odezvaDo, metodika, jednotka, odbornost, poznamkaOdd} //poznamkaOdd
         return db.ref("vysetreni").push(vysetreni).then((ref) => {
             dispatch(pridatVysetreni({
                 id: ref.key,
+                
                 ...vysetreni
+                
             }));
         });
     };
@@ -83,6 +88,7 @@ export const editovatVysetreni = (id, updates) => ({
 
 
 export const startEditovatVysetreni = (id, updates) => {
+    console.log("udaty:", {...updates});
     return (dispatch) => {
         return db.ref(`vysetreni/${id}`).update(updates).then(() => {
             dispatch(editovatVysetreni(id, updates));
@@ -124,3 +130,85 @@ export const startVycucatVysetreni = () => {
         });
     };
 };
+
+
+
+
+
+
+//PRIDAT_POZNAMKU
+
+
+
+
+export const pridatPoznamkuOdd = (id, poznamkaOddeleni) => ({
+    type: "PRIDAT_POZNAMKUODD",
+    id,
+    poznamkaOdd: {poznamkaOdd: poznamkaOddeleni}
+});
+
+export const startPridatPoznamkuOdd = (id, poznamkaOddeleni) => {
+    console.log("uz to startuje, ", id, poznamkaOddeleni)
+    return (dispatch) => {
+        //return db.ref(`vysetreni/${id}/poznamkaOdd`).update(poznamkaOddeleni);
+        console.log("ted bude proveden zapis do firebase");
+        return db.ref(`vysetreni/${id}/poznamkaOdd`).update(poznamkaOddeleni).then(() => {
+            console.log("uz by to melo byt");
+            dispatch(pridatPoznamkuOdd(id, poznamkaOddeleni));
+        });
+
+
+    };
+    
+};
+
+
+
+
+
+
+
+
+// //misto vraceni objektu vraci funkci, ktera nejdriv provede zapis do firebase pomoci push a v promise od push se provede dispatch do redux store - dispatch se vola s argumentem puvodni fce pridatVysetreni - ta vrati action objekt
+// //promise ma v argumentu informace o id polozky zapsane do firebase v objektu ref, takze potrebne parametry o expense pro addExpense predame v desctructured podobe ref.key a zbytek pres spread obkejtu expense
+// export const startPridatVysetreni = (vysetreniData) => {
+
+//     return (dispatch) => {
+
+//                 //desctructuring objektu expenseData  =  jako kdyby se vytvorily samostatne promenne  a do nich se dosadi hodnoty, ktere prijdou od toho kdo volal startPridatVysetreni (kdyz neprijde nic, tak se tam dosadi defaultni hodnty)
+
+//         const {
+//             nazev = "",
+//             synonyma = "",
+//             nazevAk = "",
+//             skAk = "",
+//             kam = "",
+//             kdy = "",
+//             odber = [],
+//             preanal = "",
+//             poznamka = "",
+//             poznamkaOdd = {},
+//             labKdoOdesila = "",
+//             labPreanal = "",
+//             labPoznamka = "",
+//             provadiSe = "",
+//             odezvaDo = "",
+//             metodika = "",
+//             jednotka = "",
+//             odbornost = ""
+//         } = vysetreniData;
+
+//         console.log(poznamkaOdd);
+//         const vysetreni = {nazev, synonyma, nazevAk, skAk, kam, kdy, odber, preanal, poznamka, labKdoOdesila, labPreanal, labPoznamka, provadiSe, odezvaDo, metodika, jednotka, odbornost, poznamkaOdd} //poznamkaOdd
+//         return db.ref("vysetreni").push(vysetreni).then((ref) => {
+//             dispatch(pridatVysetreni({
+//                 id: ref.key,
+                
+//                 ...vysetreni
+                
+//             }));
+//         });
+//     };
+// };
+
+

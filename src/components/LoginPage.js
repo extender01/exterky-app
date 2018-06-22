@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { prihlasit } from "../actions/authActions";
+import { startPrihlasit } from "../actions/authActions";
 
 export class LoginPage extends React.Component {
 
@@ -12,7 +12,7 @@ export class LoginPage extends React.Component {
         e.preventDefault();
         const login = e.target.children[0].value;
         const password = e.target.children[1].value;
-        this.props.prihlasit(login, password);
+        this.props.startPrihlasit(login, password);
         console.log("v provedSubmit", login, password);
         
     }
@@ -41,7 +41,7 @@ export class LoginPage extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    prihlasit: (login, password) => dispatch(prihlasit(login, password))
+    startPrihlasit: (login, password) => dispatch(startPrihlasit(login, password))
 });
 
 

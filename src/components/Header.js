@@ -1,24 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { odhlasit } from "../actions/authActions";
+import { startOdhlasit } from "../actions/authActions";
 
 
 export const Header = (props) => (
-    <header>
-        <h1>Externi lab vysetreni</h1>
-        <NavLink to="/" activeClassName="is-active" exact={true}>Domu   </NavLink>
-        <NavLink to="/create" activeClassName="is-active">Pridej   </NavLink>
-        <NavLink to="/help" activeClassName="is-active">Pomoc   </NavLink>
-        <button onClick={props.odhlasit}>Logout</button>
-        
-
+    <header className="header">
+        <div className="content-container">
+            <div className="header__content">
+                <Link className="header__title" to="/"><h1>Externí vyšetření</h1></Link>
+                <NavLink className="header__link" to="/" activeClassName="is-active" exact={true}>Domu   </NavLink>
+                <NavLink className="header__link" to="/create" activeClassName="is-active">Pridej   </NavLink>
+                <NavLink className="header__link" to="/help" activeClassName="is-active">Pomoc   </NavLink>
+                <div className="dalsiPokusny">
+                    <h6>{props.uzivatel}</h6>
+                    <button className ="header__button" onClick={props.startOdhlasit}>Logout</button>
+                </div>
+            </div>
+        </div>
     </header>
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    odhlasit: () => dispatch(odhlasit())
+    startOdhlasit: () => dispatch(startOdhlasit())
 });
 
+const mapStateToProps = (state) => ({
+    uzivatel: state.auth.uid
+})
 
-export default connect(undefined, mapDispatchToProps)(Header);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

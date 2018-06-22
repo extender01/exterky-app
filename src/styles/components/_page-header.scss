@@ -1,0 +1,15 @@
+.page-header{
+    background: #f7f7f7;
+    margin-bottom: $l-size;
+    padding: 20px 0;
+    
+}
+
+.page-header__title {
+    width: fit-content;
+    margin: 0 auto 20px auto;
+}
+
+.page-header__actions {
+    margin-top: $m-size;
+}

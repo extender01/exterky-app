@@ -25,6 +25,7 @@ export class EditovatVysetreniPage extends React.Component {
                 <VysetreniForm 
                     vysetreniProEditaci={this.props.vybraneVysetreni}
                     provedSubmitDoStore={this.priEditaci}
+                    uzivatel={this.props.uzivatel}
                 />
                 <button onClick={this.priOdstraneni}
                 >ODstranit</button>
@@ -42,9 +43,10 @@ const mapStateToProps = (state,props) => {
     // do props pridame jeden objekt z array vysetreni, ktery odpovida id z props.match.params.id(tedy to vysetreni na ktere jsme kliknuli)
     //takze jsme to konkretni vysetreni vytahli z redux store jako vybraneVysetreni a do VysetreniForm ho posleme v props pod jmenem vysetreniProEditaci
     return {
-        vybraneVysetreni: state.vysetreni.find((polozka) => polozka.id === props.match.params.id)
+        vybraneVysetreni: state.vysetreni.find((polozka) => polozka.id === props.match.params.id),
+        uzivatel: state.auth.uid
         };
-    };
+};
 
 
 const mapDispatchToProps = (dispatch) => ({

@@ -15,8 +15,9 @@ import { Provider } from "react-redux";
 import AppRouter, {history} from "./routers/AppRouter";
 import store from "./store/configureStore";
 import { startVycucatVysetreni } from "./actions/vysetreniActions";
+import { prihlasit, odhlasit } from "./actions/authActions";
 import { filtrovatText } from "./actions/filtryActions";
-import filtrovaneVysetreni from "./selectors/vysetreniSelector";
+//import filtrovaneVysetreni from "./selectors/vysetreniSelector";
 import { firebase } from "./firebase/firebase";
 import "normalize.css/normalize.css"
 import "./styles/styles.scss";
@@ -44,7 +45,7 @@ let hasRendered = false;
 const renderApp = () => {
     if (!hasRendered) {
         ReactDOM.render(jsx, document.getElementById("app"));
-        hasRendered = true;
+        hasRendered = false;
     }
 }
 
@@ -54,7 +55,8 @@ ReactDOM.render(<p>Loading</p>, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        console.log("log in", user.email)
+        console.log("log in", user.email);
+        store.dispatch(prihlasit(user.email));
         store.dispatch(startVycucatVysetreni()).then(() => {
             renderApp();
             
@@ -66,6 +68,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
     } else {
         console.log("log out");
+        store.dispatch(odhlasit());
         renderApp();
         history.push("/login");
     }

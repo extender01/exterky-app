@@ -24,6 +24,15 @@ const vysetreniReducer = (state = vysetreniReducerDefaultState, action) => {
 
         case "VYCUCAT_VYSETRENI":
             return action.vysetreni;
+
+        case "PRIDAT_POZNAMKUODD":
+            return state.map((item) => {
+                if (item.id === action.id) {
+                    return {...item, ...action.poznamkaOdd}
+                } else {
+                    return item
+                }
+            });
         default:
             return state;
     }
