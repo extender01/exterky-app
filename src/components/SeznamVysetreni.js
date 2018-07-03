@@ -27,6 +27,8 @@ import 'react-table/react-table.css';
 //         accessor: 'synonyma'
 //     }
 
+
+
 // ]
 
 // const columnsDetail =  [{

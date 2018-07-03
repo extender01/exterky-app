@@ -6,8 +6,10 @@ html {
 body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 1.8rem;
-    //background-color: #686868;
-    
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 button {
@@ -49,6 +51,7 @@ h6 {color:white;}
 
 .hlavni {
   margin-top: 20px;
+  min-width: 280px;
 }
 
 .flex-container {
@@ -69,49 +72,34 @@ h6 {color:white;}
 
 .flexi {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+
+.doSloupce {
+  flex-direction: column;
+}
+
+.nahoru {
+  align-items: flex-end;
+}
+
+.tlacitko {
+  text-decoration: none;
+  border:none;
+  background: $zluta;
+}
+
+
+form {
+  padding-bottom: 10px;
 }
 
 
 
-
-.box {
-  padding: 10px 15px 0 15px;
-  margin: 0 4px 0 4px;
-  text-align: center;
-   p {
-    // border: 1px grey solid;
-     padding-left: 15px;
-   }  
-
-   h4 {
-     border: 2px grey solid;
-   }
-  
-}
-
-.grow1{
-  flex: 1 1 0;
-}
-
-.grow2{
-  flex: 2 1 0;
-}
-
-.grow3{
-  flex: 3 1 0;
-}
-
-.grow4{
-  flex: 4 1 0;
-}
-
-.red {
-  background-color: $dark-grey;
-}
-
-.yel {
-  background-color: $light-grey;
-}
 
 .blue {
   background-color: $dark-grey;
@@ -218,40 +206,57 @@ h6 {color:white;}
   
 }
 
-.neni-videt {
-  display: flex;
+// .neni-videt {
+//   display: flex;
   
-  justify-content: space-around;
-  align-items: center;
-  max-height: 0;
-  overflow: hidden;
-  transition: all .5s;
-  transition-delay: .2s;
-  &.ale-je {
-    max-height: 150px;
-    margin-bottom: 10px;
-  }
-  form {
-   // display: flex;
-    //justify-content: space-between;
-    width: 100%;
+//   justify-content: space-around;
+//   align-items: center;
+//   max-height: 0;
+//   overflow: hidden;
+//   transition: all .5s;
+//   transition-delay: .2s;
+//   &.ale-je {
+//     max-height: 150px;
+//     margin-bottom: 10px;
+//   }
+
+//   form {
+//    // display: flex;
+//     //justify-content: space-between;
+//     width: 100%;
     
-  }
+//   }
 
-  textarea {
-    width: 100%;
-  }
-  button {
-    background:$dark-grey;
-    color: white;
-    border: 1px grey solid;
-    width: 100%;
-    padding: 10px 15px;
-    margin: 0; 
-  }
+//   textarea {
+//     width: 100%;
+//   }
+//   button {
+//     background:$dark-grey;
+//     color: white;
+//     border: 1px grey solid;
+//     width: 100%;
+//     padding: 10px 15px;
+//     margin: 0; 
+//   }
 
   
+// }
+
+.neni-videt {
+  display: none;
 }
+
+.ale-je {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+     form {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+     }
+}
+
 
 #pridatPozOdd {
   cursor: pointer;
@@ -262,7 +267,5 @@ h6 {color:white;}
 }
 
 
-.uprostred {
-  
-}
+
 

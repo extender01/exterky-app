@@ -1,12 +1,4 @@
-//kdyz je export named tak pri importu se musi jmenovat stejne jako v exportnim souboru
-//kdyz je export default tak se to pri jmenovani importu muze jmenovat jinak nez v externim souboru a je to bez slozenych zavorek
 
-/* import {square, add} from "./utils.js";
-import {isAdult, canDrink} from "./person.js";
-import defaultniFceSenior from "./person.js"; */
-
-/* import validator from "validator";
-console.log(validator.isEmail("ahoooooj@asf.com")); */
 
 
 import React from "react";
@@ -17,7 +9,6 @@ import store from "./store/configureStore";
 import { startVycucatVysetreni } from "./actions/vysetreniActions";
 import { prihlasit, odhlasit } from "./actions/authActions";
 import { filtrovatText } from "./actions/filtryActions";
-//import filtrovaneVysetreni from "./selectors/vysetreniSelector";
 import { firebase } from "./firebase/firebase";
 import "normalize.css/normalize.css"
 import "./styles/styles.scss";
