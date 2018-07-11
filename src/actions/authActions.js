@@ -39,6 +39,7 @@ export const odhlasit = () => ({
 export const startOdhlasit = () => {
   return () => {
     return firebase.auth().signOut().then(() => {
+        
         console.log("uzivatel odhlasen")
     }).catch((error) => {
         console.log(error)

@@ -1,67 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import PolozkaVysetreni from "./PolozkaVysetreni";
-import filtrovaneVysetreni from "../selectors/vysetreniSelector";
+import filtrovaneVysetreni from "../../selectors/vysetreniSelector";
 
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
 
 
-// const data = [{
-//     name: 'Tanner Linsley',
-//     age: 26,
-//     friend: {
-//       name: 'Jason Maurer',
-//       age: 23,
-// }}]
-
-
-// const columns = [{
-//     Header: 'Nazev',
-//     accessor: 'nazev' 
-//     },{
-//         Header: 'Kam to jede',
-//         accessor: 'kam' 
-//     }, {
-//         Header: 'Synonyma',
-//         accessor: 'synonyma'
-//     }
-
-
-
-// ]
-
-// const columnsDetail =  [{
-//     Header: 'Nazev',
-//     accessor: 'nazev' 
-//     },{
-//         Header: 'Kam to jede',
-//         accessor: 'kam' 
-//     }, {
-//         Header: 'Synonyma',
-//         accessor: 'synonyma'
-//     }
-
-// ]
 
 let dataProTabulku = []
 
 export const SeznamVysetreni = (props) => (
     <div className="content-container">
-        <div className="page-header">
+        <div className="seznam-vysetreni">
         
-            <h1 className="page-header__title">Velky seznam vysetreni</h1>
+            <h1 className="seznam-vysetreni__title">Velky seznam vysetreni</h1>
             
-            <div className="flex-container seznam-lajna">
-            <div className="box grow1 darkgrey">
+            <div className="seznam-vysetreni__line">
+            <div className="seznam-vysetreni__square g2">
                  <p>NAZEV</p>
             </div>
 
-            <div className="box grow1 darkgrey">
+            <div className="seznam-vysetreni__square g3">
                  <p>SYNONYMA</p>
             </div>
 
-            <div className="box grow1 darkgrey">
+            <div className="seznam-vysetreni__square g1">
                  <p>KAM TO JEDE</p>
             </div>
 

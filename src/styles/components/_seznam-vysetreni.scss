@@ -1,0 +1,66 @@
+.seznam-vysetreni {
+    background: $warm-grey;
+    padding: 20px 0;
+    
+    margin: 0 auto;
+    //border: 4px rgb(194, 18, 18) solid;
+    text-decoration: none;
+       
+    &__title {
+        width: fit-content;
+        margin: 0 auto 20px auto;
+    }
+
+
+    &__line {
+        background: $glacier-blue;
+        color: white;
+        max-width: 1100px;
+        margin: 1rem auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        @media (max-width: 512px) {
+            flex-direction: column;
+            padding: 1rem 0;
+            line-height: 1.5;
+        }
+
+        &:first-of-type {
+            font-weight: bolder;
+        }
+    }
+
+    &__square {
+        text-align: left;
+        @media (max-width: 512px) {
+            text-align: center;
+        }
+
+        &:first-of-type {
+            margin-left: 1rem;
+            //background:green;
+            @media (max-width: 512px) {
+            margin-left: 0;
+            }
+        }
+
+        // &:nth-child(3) {
+        //     @media (max-width: 512px) {
+        //         border-bottom: 2px red solid;
+        //     }
+        // }
+    }
+
+    
+
+
+}
+
+
+
+
+.page-header__actions {
+    margin-top: $m-size;
+}

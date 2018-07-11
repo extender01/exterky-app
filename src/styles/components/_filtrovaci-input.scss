@@ -1,0 +1,27 @@
+
+
+.filtrovaci-input {
+    background: $sun-glow;
+    padding: 2rem 0;
+
+    &__search-bar {
+    
+
+        & input {
+            width: 75%;
+            max-width: 50rem;
+            height: 40px;
+            border: none;
+        }
+
+        & img {
+            margin-left: 1rem;
+        }
+    }
+
+
+}
+
+
+
+

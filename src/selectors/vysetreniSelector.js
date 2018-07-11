@@ -12,9 +12,11 @@ const filtrovaneVysetreni = (vysetreni, filtry) => {
        return dleNazvu || dleSynonyma || dleNazvuBezDia;
     }).sort((a, b) => {
         if (filtry.razeni === "a") {
-            return a.nazev > b.nazev ? 1 : -1;
+            //return a.nazev.toLowerCase() > b.nazev.toLowerCase() ? 1 : -1;
+            return a.nazev.toLowerCase().localeCompare(b.nazev.toLowerCase());
         } else if (filtry.razeni === "z") {
-            return a.nazev < b.nazev ? 1 : -1;
+            //return a.nazev.toLowerCase() < b.nazev.toLowerCase() ? 1 : -1;
+            return b.nazev.toLowerCase().localeCompare(a.nazev.toLowerCase());
         } else if (filtry.razeni === "nejnovejsi") {
             return a.upravenoKdy < b.upravenoKdy ? 1 : -1;
         } else if (filtry.razeni === "nejstarsi") {

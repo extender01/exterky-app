@@ -11,7 +11,7 @@ export class Kdy extends React.Component {
         switch (this.props.kam) {
            case "Krnov":
            console.log("je to krnov");
-            return (<p>casy od krnova</p>)
+            return (<div><p>Po - Pá: cca 7:30 a 11:30</p><p>So-Ne: cca 9:30</p></div>)
          };
     };
    

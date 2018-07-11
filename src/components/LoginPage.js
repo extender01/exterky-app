@@ -21,11 +21,11 @@ export class LoginPage extends React.Component {
     render() {
 
         return (
-            <div>
-                <form name="formular" onSubmit={this.provedSubmit}>
-                    <input type="text" placeholder="Uzivatelske jmeno" name="id" />
-                    <input type="password" placeholder="Heslo" name="password" />
-                    <button >LOGIN</button>
+            <div className="login">
+                <form name="formular" className="login__form" onSubmit={this.provedSubmit}>
+                    <input type="text" placeholder="Uzivatelske jmeno"  className="login__input" name="id" />
+                    <input type="password" placeholder="Heslo" className="login__input" name="password" />
+                    <button className="login__button" >LOGIN</button>
 
                 </form>
             
@@ -41,7 +41,7 @@ export class LoginPage extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    startPrihlasit: (login, password) => dispatch(startPrihlasit(login, password))
+    startPrihlasit: (login, password) => dispatch(startPrihlasit(login, password)) //provede prihlaseni do firebase
 });
 
 

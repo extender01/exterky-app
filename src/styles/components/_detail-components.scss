@@ -4,9 +4,7 @@
     margin: 0 4px 0 4px;
     text-align: center;
       
-     h4 {
-      // border: 2px grey solid;
-     }
+     
     
   }
 
@@ -100,4 +98,12 @@
 
 .g4{
     flex: 4 1 0;
+}
+
+.g08 {
+    flex: 0.8 1 auto;
+}
+
+.g05 {
+    flex: 0.5 1 auto;
 }

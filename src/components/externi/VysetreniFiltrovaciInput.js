@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { filtrovatText, serazeni } from "../actions/filtryActions";
+import { filtrovatText, serazeni } from "../../actions/filtryActions";
 
 export class VysetreniFiltrovaciInput extends React.Component {
 
@@ -23,12 +23,13 @@ export class VysetreniFiltrovaciInput extends React.Component {
     render() {
         return (
             <div className="content-container">
-                <div className="input-group">
-                    <div className="input-group__item">
+                <div className="filtrovaci-input">
+                    <div className="filtrovaci-input__search-bar g4 flexi-center">
                         <input type="text" value={this.props.filtry.text} onChange={this.priFiltrovani} />
+                        <img src="../../images/magnifying-glass.png" height="40px" />
                     </div>
 
-                    <div className="input-group__item">
+                    {/*<div className="filtrovaci-input__item g1">
                         <select 
                             value={this.props.filtry.razeni}
                             onChange={this.priZmeneRazeni}    
@@ -38,7 +39,7 @@ export class VysetreniFiltrovaciInput extends React.Component {
                             <option value="nejnovejsi">Nejnovejsi</option>
                             <option value="nejstarsi">Nejstarsi</option>
                         </select>
-                    </div>
+                    </div>*/}
                 </div>
                 
                 

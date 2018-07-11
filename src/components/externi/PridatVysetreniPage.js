@@ -1,7 +1,7 @@
 import React from "react";
 import VysetreniForm from "./VysetreniForm";
 import { connect } from "react-redux";
-import { startPridatVysetreni } from "../actions/vysetreniActions";
+import { startPridatVysetreni } from "../../actions/vysetreniActions";
 
 
 export class PridatVysetreniPage extends React.Component {

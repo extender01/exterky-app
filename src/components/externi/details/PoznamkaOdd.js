@@ -1,6 +1,6 @@
 import React from "react";
 import  { connect } from "react-redux";
-import { startPridatPoznamkuOdd } from "../../actions/vysetreniActions";
+import { startPridatPoznamkuOdd } from "../../../actions/vysetreniActions";
 
 
 
@@ -11,13 +11,12 @@ export class PoznamkaOdd extends React.Component {
         this.state = {
             isPozOddFormVisible: false,   //viditelnost formulare k poznamce
             isPozOddVisible: true,        //viditelnost samotne poznamky
-            poznOdd: this.existujePoznOdd() ? this.props.vv.poznamkaOdd[this.login] : ""
+            poznOdd: this.existujePoznOdd() ? this.props.vv.poznamkaOdd[this.props.whoLogged] : ""
             
           };
     }
 
-    login = this.props.uzivatel.substring(0, this.props.uzivatel.indexOf("@")); // cast stringu uzivatele pred @sno.cz
-
+    
 
 
      //kontrola jestli neco existuje v poznamce od oddeleni, kdyz jo tak dole v JSX se to ternary operatorem evaluuje jestli je to od soucasne prihlaseneho uzivatele
@@ -52,7 +51,7 @@ export class PoznamkaOdd extends React.Component {
     provedSubmit = (e) => {
       e.preventDefault();
       console.log("proveden submit");
-      this.props.provedDispatchPridatPoznamkuOdd(this.props.vv.id, {...this.props.prevPoznOdd, [this.login]: this.state.poznOdd});
+      this.props.provedDispatchPridatPoznamkuOdd(this.props.vv.id, {...this.props.prevPoznOdd, [this.props.whoLogged]: this.state.poznOdd});
       this.toggleFormular(e);
       //this.props.history.push("/");
       
@@ -68,11 +67,13 @@ export class PoznamkaOdd extends React.Component {
 
         return (
             <div className={this.props.classNames}>
-                <h4>POZNÁMKA ODDĚLENÍ {this.login.toUpperCase()} <span id="pridatPozOdd" onClick={this.toggleFormular}>+</span></h4>
+                <h4>POZNÁMKA ODDĚLENÍ {this.props.whoLogged.toUpperCase()} <span id="pridatPozOdd" onClick={this.toggleFormular}>+</span></h4>
+                
+                
                 <div className={isPozOddFormVisible ? "ale-je" : "neni-videt"}>
                     <form onSubmit={this.provedSubmit} className="g1">
                         <textarea className="g1" rows="4" onChange={this.priZmene} value={this.existujePoznOdd() ? this.state.poznOdd : undefined} />
-                        <button className="tlacitko">{this.props.prevPoznOdd[this.login] ? "Upravit" : "Pridat"}</button>
+                        <button className="tlacitko">{this.props.prevPoznOdd[this.props.whoLogged] ? "Upravit" : "Pridat"}</button>
                     </form>   
                 </div>
                 <div  className={isPozOddVisible ? "ale-je" : "neni-videt"}>
@@ -96,7 +97,6 @@ const mapStateToProps = (state,props) => {
 
     return {
         vv: najdiVysetreniVeReduxPodleId(state, props), //vv= vybrane vysetreni, prohleda array vysetreni, kde jsou vsechny objekty a vrati ten objekt, ktery odpovida podle id
-        uzivatel: state.auth.uid,
         prevPoznOdd:  najdiVysetreniVeReduxPodleId(state, props).poznamkaOdd //najde objekt v array podle id a jen jeho poznamkuOdd, stejne jako vysetreni[x].poznamkaOdd
 
 

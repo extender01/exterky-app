@@ -19,7 +19,7 @@ import "./firebase/firebase";
 
 //provede callback pri kazde zmene v redux store
 store.subscribe(() => {
-    console.log(store.getState());
+    console.log("probehla zmena ve store", store.getState());
 });
 
 
@@ -35,19 +35,20 @@ const jsx = (
 let hasRendered = false;
 const renderApp = () => {
     if (!hasRendered) {
+        console.log("vyrenderovano");
         ReactDOM.render(jsx, document.getElementById("app"));
-        hasRendered = false;
+        hasRendered = true;
     }
 }
 
 ReactDOM.render(<p>Loading</p>, document.getElementById("app"));
 
 
-
+//spusti se kdyz ve firebase probehne prihlaseni nebo odhlaseni
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        console.log("log in", user.email);
-        store.dispatch(prihlasit(user.email));
+    if (user) { //pokud prihlaseni
+        console.log("log in", user);
+        store.dispatch(prihlasit(user.email)); //pokud je prihlaseny ve firebase tak zapis prihlaseneho uzivatele do store
         store.dispatch(startVycucatVysetreni()).then(() => {
             renderApp();
             
@@ -59,10 +60,37 @@ firebase.auth().onAuthStateChanged((user) => {
 
     } else {
         console.log("log out");
-        store.dispatch(odhlasit());
-        renderApp();
-        history.push("/login");
+        //store.dispatch(odhlasit());
+        store.dispatch(startVycucatVysetreni()).then(() => {
+
+            renderApp();
+        })
+        //history.push("/login");
     }
   });
+
+
+
+  
+// firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//         console.log("log in", user);
+//         store.dispatch(prihlasit(user.email));
+//         store.dispatch(startVycucatVysetreni()).then(() => {
+//             renderApp();
+            
+//             //history.location.pathname je soucasna url kde ted jsme - pokud jsme na domaci login page, tak presmeruj na dashboard page
+//             if (history.location.pathname === "/login") {
+//                 history.push("/");
+//             }
+//         });
+
+//     } else {
+//         console.log("log out");
+//         store.dispatch(odhlasit());
+//         renderApp();
+//         history.push("/login");
+//     }
+//   });
 
 

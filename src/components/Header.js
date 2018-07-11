@@ -1,28 +1,43 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { startOdhlasit } from "../actions/authActions";
+import { startOdhlasit, odhlasit } from "../actions/authActions";
 
 
 export const Header = (props) => (
     <header className="header">
         <div className="content-container">
             <div className="header__content">
-                <Link className="header__title" to="/"><h1>Externí vyšetření</h1></Link>
+                <Link className="header__title" to="/"><h1>CL SNO</h1></Link>
                 <NavLink className="header__link" to="/" activeClassName="is-active" exact={true}>Domu   </NavLink>
-                <NavLink className="header__link" to="/create" activeClassName="is-active">Pridej   </NavLink>
-                <NavLink className="header__link" to="/help" activeClassName="is-active">Pomoc   </NavLink>
-                <div className="dalsiPokusny">
-                    <h6>{props.uzivatel}</h6>
-                    <button className ="header__button" onClick={props.startOdhlasit}>Logout</button>
+                <NavLink className="header__link" to="/externi-metody" activeClassName="is-active" exact={true}>Externi   </NavLink>
+                <NavLink className="header__link" to="/externi-metody/create" activeClassName="is-active">Pridej   </NavLink>
+                
+                <div className="header__user">
+                    <p>{props.uzivatel}</p>
+                   {props.uzivatel ?
+                    <button  className ="header__button" onClick={props.odhlas}>LOGOUT</button>
+                        :
+                    <Link  className ="header__button" to="/login">LOGIN</Link>
+                   }
+                   
+                   
+                    
+                    
                 </div>
+                
             </div>
         </div>
     </header>
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    startOdhlasit: () => dispatch(startOdhlasit())
+    odhlas: () => {
+        dispatch(startOdhlasit())
+        dispatch(odhlasit())
+    }
+
+
 });
 
 const mapStateToProps = (state) => ({

@@ -1,6 +1,6 @@
 import React from "react";
 import  { connect } from "react-redux";
-import { startPridatPoznamkuOdd } from "../actions/vysetreniActions";
+import { startPridatPoznamkuOdd } from "../../actions/vysetreniActions";
 import { Nazev } from "./details/Nazev";
 import PoznOdd from "./details/PoznamkaOdd";
 import { Synonyma } from "./details/Synonyma";
@@ -36,10 +36,18 @@ export class DetailVysetreniPage extends React.Component {
    
   };
 
+  
+  whoLogged = () => {
+    if (this.props.uzivatel) {
+        return this.props.uzivatel.substring(0, this.props.uzivatel.indexOf("@"));
+    } else {
+        return undefined;
+    }
+};
 
 
   render() {
-
+    console.log("login je: ", this.whoLogged());
     const {vv} = this.props;  //desctructuring, abychom nemuseli vsude psat this.props.vv ...
    
     return (
@@ -70,13 +78,17 @@ export class DetailVysetreniPage extends React.Component {
 
       <div className="flex-container">
         <Poznamka poznamka={vv.poznamka} classNames="box barvaPoznamka g1" />
-        <PoznOdd vysID={this.props.match.params.id} classNames="box barvaPoznamkaOdd g1" />
+        {this.whoLogged() && <PoznOdd vysID={this.props.match.params.id} whoLogged={this.whoLogged()} classNames="box barvaPoznamkaOdd g1" />}
+        
       </div>
-
-      <div className="flex-container">
-        <KdoPosila kdoPosila={vv.labKdoOdesila} classNames="box barvaKdoPosila g1" />
-        <PoznamkaLab labPoznamka={vv.labPoznamka} classNames="box barvaPoznamkaLab g1" />
-      </div>
+      
+      {this.whoLogged()==="lab" && 
+        <div className="flex-container">
+          <KdoPosila kdoPosila={vv.labKdoOdesila} classNames="box barvaKdoPosila g1" />
+          <PoznamkaLab labPoznamka={vv.labPoznamka} classNames="box barvaPoznamkaLab g1" />
+        </div> 
+      }
+      
       
       <div className="flex-container">
         <ProvadiSe provadiSe={vv.provadiSe} classNames="box barvaProvadiSe g1" />
@@ -105,7 +117,7 @@ const mapStateToProps = (state,props) => {
     // do props pridame jeden objekt z array vysetreni, ktery odpovida id z props.match.params.id(tedy to vysetreni na ktere jsme kliknuli)
     return {
         vv: najdiVysetreniVeReduxPodleId(state, props), //vv= vybrane vysetreni, prohleda array vysetreni, kde jsou vsechny objekty a vrati ten objekt, ktery odpovida podle id
-        
+        uzivatel: state.auth.uid,
         };
 };
 
