@@ -10,8 +10,14 @@ export class Odber extends React.Component {
         sg: "Srazliva krev s gelem",
         se: "Srazliva krev bez gelu",
         pli: "Nesrazliva s Li heparinem",
-        nespec: "oddelovaci",
-        specialni: "Specialni odber na ledu"
+        edta: "Nesrazliva krev s EDTA",
+        citr: "Nesrazliva krev s Na citratem",
+
+        mocj: "Moc jednorazova",
+        mocsb: "Moc sbirana",
+        pu: "punktat",
+        csf: "Likvor"
+        
         //dopsat Object.keys a z jeho array vytahnout specialni, kde to bude primo napsane
     };
 
@@ -20,9 +26,9 @@ export class Odber extends React.Component {
             return (
                 odberPole.map((item, index) => {
                     return ( 
-                        <div key={index} className="flexi doSloupce" >
-                            <div className={`obrazek ${item}`}></div>
-                            <p>{this.typyOdberu[item]}</p>
+                        <div key={index} className="flexi--column" >
+                            <div className={`detail__img-${item}`}></div>
+                            <p>{this.typyOdberu[item] ? this.typyOdberu[item] : odberPole[index]}</p>
                         </div>
                     );
                 })
@@ -33,13 +39,9 @@ export class Odber extends React.Component {
         return (
             <div className={this.props.classNames}>
                 <h4>ODBĚR</h4>
-                <div className="flexi nahoru">
+                <div className="flexi--align-low">
                     {this.coZaOdber(this.props.odber)}
-                    {this.props.odberSpec &&
-                         <div className="flexi doSloupce">
-                            <p>{this.props.odberSpec}</p>
-                         </div>
-                        }
+                    
                 </div>
             </div>
         )

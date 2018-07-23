@@ -43,18 +43,21 @@
         text-decoration: none;
         border: 1px rgb(220, 220, 220) solid;
         color: black;
+        cursor: pointer;
         //color: white;
         &:hover{
             background-color: lighten($dark-blue, 20%);
         }
     }
 
+   
     &__user {
         display: flex;
         align-items: center;
 
         & p {
             margin-right:2rem;
+            flex-basis: 100%;
         }
     }
 }

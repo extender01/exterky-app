@@ -9,240 +9,37 @@ body {
     margin: 0;
 }
 
+
+.not-visible {
+  display: none;
+}
+
 h1 {
   font-size: 2rem;
 }
 
-button {
-    cursor: pointer;
-}
-
-button:disabled {
-    cursor: default;
-}
-
-.is-active {
-    font-weight: bold;
-}
-
-header {
-    background-color: yellow;
-}
-
-
-
-.flexi-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexi-space-evenly {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-
-
-
 p, h3, h4  {
- margin:0
-}
-
-h4 {
-  //background-color: rgba(1, 1, 1, .15);
-  //background-color: darken($tyrkys, 5%);
-  //border-radius: 3px;
-  padding: 10px 10px;
-  //text-decoration: underline;
-  
-}
-
-h6 {color:white;}
-
-.hlavni {
-  margin-top: 20px;
-  min-width: 280px;
-}
+  margin:0
+ }
+ 
+ h4 {
+   padding: 10px;
+   
+ }
+ 
+ h6 {
+   color:white;
+  }
 
 .flex-container {
-  //background-color: rgb(255, 214, 214);
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
-  max-width: 1000px;
-  margin: 5px auto;
-  //border: 4px rgb(194, 18, 18) solid;
-  padding: 0px 0;
-  text-decoration: none;
-      @media (max-width: 512px) {
-      flex-direction: column;
-  }
-
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px;
-  flex-wrap: wrap;
-}
-
-
-.doSloupce {
-  flex-direction: column;
-}
-
-.nahoru {
-  align-items: flex-end;
-}
-
-.tlacitko {
-  text-decoration: none;
-  border:none;
-  background: $zluta;
-}
-
-
-form {
-  padding-bottom: 10px;
 }
 
 
 
 
-.blue {
-  background-color: $dark-grey;
-  color: white;
-  
-}
 
-.vio {
-  background-color: $light-grey;
-}
-
-.green {
-  background-color: $light-grey;
-}
-
-.grey {
-  background: $dark-grey;
-  color: white;
-  text-decoration: none;
-  transition: background .4s;
-    &:hover {
-      background: red;
-      
-    }
-  
-}
-
-.darkgrey {
-  background: darken($dark-grey, 15%);
-  color: white;
-  text-decoration: none;
- font-weight: bold;
-}
-
-
-.polozka {
-  background-color: $dark-grey;
-  color: white;
-  text-decoration: none;
-    
-  
-}
-
-
-.posledni {
-  margin: 0 4px 10px 4px;
-}
-  
-.obrazek {
-  
-  //margin: auto;
-  width: 40px;
-  
-  
-  
-}
-
-.sg {
-  content: url("/images/14.png");
-  //border: 1px yellow solid;
-}
-
-.se {
-  content: url("/images/1.png");
-}
-
-
-.pli{
-  content: url("/images/19.png");
-}
-
-.lajna {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-
-}
-
-.blok {
- display: flex;
- //justify-content: center;
- //border: 1px red solid;
- align-items: center;
-  width: 100%;
-  padding-left: 10px;
-
-  p {
-    margin: 0;
-  }
-}
-
-.seznam-lajna {
-  background: $light-grey;
-}
-
-.cssTest {
-  background: orangered;
-  border-radius: 3px;
-  transition: background .5s;
-}
-
-.dalsiPokusny {
-  display: flex;
-  
-}
-
-
-
-.neni-videt {
-  display: none;
-}
-
-.ale-je {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-     form {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-     }
-}
-
-
-#pridatPozOdd {
-  cursor: pointer;
-}
-
-.neviditelny {
-  display: none;
-}
 
 
 

@@ -67,16 +67,16 @@ export class PoznamkaOdd extends React.Component {
 
         return (
             <div className={this.props.classNames}>
-                <h4>POZNÁMKA ODDĚLENÍ {this.props.whoLogged.toUpperCase()} <span id="pridatPozOdd" onClick={this.toggleFormular}>+</span></h4>
+                <h4>POZNÁMKA ODDĚLENÍ {this.props.whoLogged.toUpperCase()} <span className="detail__poznOdd__add" onClick={this.toggleFormular}>+</span></h4>
                 
                 
-                <div className={isPozOddFormVisible ? "ale-je" : "neni-videt"}>
+                <div className={isPozOddFormVisible ? "detail__poznOdd" : "not-visible"}>
                     <form onSubmit={this.provedSubmit} className="g1">
                         <textarea className="g1" rows="4" onChange={this.priZmene} value={this.existujePoznOdd() ? this.state.poznOdd : undefined} />
-                        <button className="tlacitko">{this.props.prevPoznOdd[this.props.whoLogged] ? "Upravit" : "Pridat"}</button>
+                        <button className="detail__poznOdd__button">{this.props.prevPoznOdd[this.props.whoLogged] ? "Upravit" : "Pridat"}</button>
                     </form>   
                 </div>
-                <div  className={isPozOddVisible ? "ale-je" : "neni-videt"}>
+                <div  className={isPozOddVisible ? "detail__poznOdd" : "not-visible"}>
                     {this.existujePoznOdd() ? <p> {this.state.poznOdd}</p> : <p>neni tam</p>}
                 </div>
 

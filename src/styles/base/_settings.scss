@@ -16,25 +16,31 @@ $sun-glow: #d9b44a;
 $mountains: #4f6457;
 $mist: #acd0c0;
 
+$nazvy: #1565c0;
+$odbery: #ffeb3b;
+$poznamka-oddeleni: #f5a424;
+$detaily: #e91e63;
+$lab: #4caf50;
+
 
 //barvy komponent na detailu
-$barvaNazev: rgb(194, 255, 73);
-$barvaSynonyma: $barvaNazev;
-$barvaNazevAk: $barvaNazev;
-$barvaSkupinyAk: $barvaNazev;
-$barvaKam: $barvaNazev;
-$barvaKdy: $barvaNazev;
-$barvaOdber: $barvaNazev;
-$barvaPreanal: $barvaNazev;
-$barvaPoznamka: $barvaNazev;
-$barvaPoznamkaOdd: $oranzova;
-$barvaKdoPosila: $zluta;
-$barvaPoznamkaLab: $zluta;
-$barvaProvadiSe: $barvaNazev;
-$barvaOdezva: $barvaNazev;
-$barvaMetodika:$barvaNazev;
-$barvaJednotka: $barvaNazev;
-$barvaOdbornost:$barvaNazev;
+$barvaNazev: $nazvy;
+$barvaSynonyma: $nazvy;
+$barvaNazevAk: $nazvy;
+$barvaSkupinyAk: $nazvy;
+$barvaKam: $odbery;
+$barvaKdy: $odbery;
+$barvaOdber: $odbery;
+$barvaPreanal: $odbery;
+$barvaPoznamka: $odbery;
+$barvaPoznamkaOdd: $poznamka-oddeleni;
+$barvaKdoPosila: $lab;
+$barvaPoznamkaLab: $lab;
+$barvaProvadiSe: $detaily;
+$barvaOdezva: $detaily;
+$barvaMetodika:$detaily;
+$barvaJednotka: $detaily;
+$barvaOdbornost:$detaily;
 
 
 //spacing

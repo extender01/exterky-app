@@ -24,7 +24,7 @@ export class VysetreniFiltrovaciInput extends React.Component {
         return (
             <div className="content-container">
                 <div className="filtrovaci-input">
-                    <div className="filtrovaci-input__search-bar g4 flexi-center">
+                    <div className="filtrovaci-input__search-bar g4 flexi--center">
                         <input type="text" value={this.props.filtry.text} onChange={this.priFiltrovani} />
                         <img src="../../images/magnifying-glass.png" height="40px" />
                     </div>

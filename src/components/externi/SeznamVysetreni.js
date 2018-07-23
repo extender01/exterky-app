@@ -14,18 +14,18 @@ export const SeznamVysetreni = (props) => (
     <div className="content-container">
         <div className="seznam-vysetreni">
         
-            <h1 className="seznam-vysetreni__title">Velky seznam vysetreni</h1>
+            <h1 className="seznam-vysetreni__title">Seznam metod odesílaných do externích laboratoři</h1>
             
             <div className="seznam-vysetreni__line">
-            <div className="seznam-vysetreni__square g2">
-                 <p>NAZEV</p>
+            <div className="seznam-vysetreni__square gf2">
+                 <p>NÁZEV</p>
             </div>
 
-            <div className="seznam-vysetreni__square g3">
+            <div className="seznam-vysetreni__square gf3">
                  <p>SYNONYMA</p>
             </div>
 
-            <div className="seznam-vysetreni__square g1">
+            <div className="seznam-vysetreni__square gf1">
                  <p>KAM TO JEDE</p>
             </div>
 

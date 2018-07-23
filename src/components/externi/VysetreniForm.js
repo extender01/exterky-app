@@ -137,7 +137,8 @@ export default class VysetreniForm extends React.Component {
                 metodika: this.state.metodika,
                 jednotka: this.state.jednotka,
                 odbornost: this.state.odbornost,
-                nazevAk: this.state.nazevAk
+                nazevAk: this.state.nazevAk,
+                skAk: this.state.skAk
                 
                // upravenoKdy: this.state.upravenoKdy
             });
@@ -147,126 +148,162 @@ export default class VysetreniForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="vysetreni-form">
             {this.state.error && <p>error: nazev nebo amount chybi, dopln vole</p>}
                 <form onSubmit={this.provedSubmit}>
-                    <input
+                    <div>
+                        <p> Nazev </p>
+                        <input
+                            type="text"
+                            name="nazev"
+                            placeholder="Nazev vysetreni"
+                            autoFocus
+                            value={this.state.nazev}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Synonyma</p>
+                        <input
+                            type="text"
+                            name="synonyma"
+                            placeholder="Synonyma"
+                            value={this.state.synonyma}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Nazev v Akordu</p>
+                        <input
+                            type="text"
+                            name="nazevAk"
+                            placeholder="Nazev v Akordu"
+                            value={this.state.nazevAk}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Skupiny v Akordu</p>
+                        <input
+                            type="text"
+                            name="skAk"
+                            placeholder="Skupiny v Akordu"
+                            value={this.state.skAk}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Kam to jede</p>
+                        <input
+                            type="text"
+                            name="kam"
+                            placeholder="Kam to jede"
+                            value={this.state.kam}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Odběr</p>
+                        <input
+                            type="text"
+                            name="odber"
+                            placeholder="co odebrat"
+                            value={this.state.odber}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Preanalytická fáze</p>
+                        <input
+                            type="text"
+                            name="preanal"
+                            placeholder="Preanalyticka faze"
+                            value={this.state.preanal}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                    <p>Obecná poznámka</p>
+                        <input
+                            type="text"
+                            name="poznamka"
+                            placeholder="Poznamka obecna"
+                            value={this.state.poznamka}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Kdo v lab odesílá</p>
+                        <input
+                            type="text"
+                            name="labKdoOdesila"
+                            placeholder="Kdo odesila z lab"
+                            value={this.state.labKdoOdesila}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Preanalytika pro laboratoř</p>
+                        <input
+                            type="text"
+                            name="labPreanal"
+                            placeholder="Preanal pro lab"
+                            value={this.state.labPreanal}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Kdy se provádí</p>
+                        <input
+                            type="text"
+                            name="provadiSe"
+                            placeholder="Kdy se provadi"
+                            value={this.state.provadiSe}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Odezva</p>
+                        <input
+                            type="text"
+                            name="odezvaDo"
+                            placeholder="Odezva"
+                            value={this.state.odezvaDo}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Metodika</p>
+                        <input
+                            type="text"
+                            name="metodika"
+                            placeholder="Metodika"
+                            value={this.state.metodika}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Jednotka</p>
+                        <input
+                            type="text"
+                            name="jednotka"
+                            placeholder="Jednotka"
+                            value={this.state.jednotka}
+                            onChange={this.priZmene}
+                        />
+                    </div>
+                    <div>
+                        <p>Odbornost</p>
+                        <input
                         type="text"
-                        name="nazev"
-                        placeholder="Nazev vysetreni"
-                        autoFocus
-                        value={this.state.nazev}
+                        name="odbornost"
+                        placeholder="Odbornost"
+                        value={this.state.odbornost}
                         onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="synonyma"
-                        placeholder="Synonyma"
-                        value={this.state.synonyma}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="nazevAk"
-                        placeholder="Nazev v Akordu"
-                        value={this.state.nazevAk}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="skAk"
-                        placeholder="Skupiny v Akordu"
-                        value={this.state.skAk}
-                        onChange={this.priZmene}
-                     />
-                    <input
-                        type="text"
-                        name="kam"
-                        placeholder="Kam to jede"
-                        value={this.state.kam}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="kdy"
-                        placeholder="Kdy jezdi rozvoz"
-                        value={this.state.kdy}
-                        onChange={this.priZmene}
-                     />
-                    {/*tady odber*/}
-                    <input
-                        type="text"
-                        name="preanal"
-                        placeholder="Preanalyticka faze"
-                        value={this.state.preanal}
-                        onChange={this.priZmene}
-                     />
-                     <input
-                        type="text"
-                        name="poznamka"
-                        placeholder="Poznamka obecna"
-                        value={this.state.poznamka}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="poznamkaOdd"
-                        placeholder="Poznamka od oddeleni"
-                        value={this.state.poznamkaOdd}
-                        onChange={this.priZmene}
-                     />
-                     <input
-                        type="text"
-                        name="labKdoOdesila"
-                        placeholder="Kdo odesila z lab"
-                        value={this.state.labKdoOdesila}
-                        onChange={this.priZmene}
-                      />
-                      <input
-                        type="text"
-                        name="labPreanal"
-                        placeholder="Preanal pro lab"
-                        value={this.state.labPreanal}
-                        onChange={this.priZmene}
-                     />
-                     <input
-                        type="text"
-                        name="provadiSe"
-                        placeholder="Kdy se provadi"
-                        value={this.state.provadiSe}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="odezvaDo"
-                        placeholder="Odezva"
-                        value={this.state.odezvaDo}
-                        onChange={this.priZmene}
-                    />
-                    <input
-                        type="text"
-                        name="metodika"
-                        placeholder="Metodika"
-                        value={this.state.metodika}
-                        onChange={this.priZmene}
-                     />
-                     <input
-                        type="text"
-                        name="jednotka"
-                        placeholder="Jednotka"
-                        value={this.state.jednotka}
-                        onChange={this.priZmene}
-                     />
-                     <input
-                     type="text"
-                     name="odbornost"
-                     placeholder="Odbornost"
-                     value={this.state.odbornost}
-                     onChange={this.priZmene}
-                 />
+                        />
+                    </div>
 
-
-                    <button>PRIDEJ DO DB</button>
+                    <button>{this.props.vysetreniProEditaci ? "Upravit" : "Přidej do databáze"}</button>
 
                 </form>
             </div>

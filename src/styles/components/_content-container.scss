@@ -3,3 +3,39 @@
     margin: 0 auto;
     //padding: 0 $m-size;
 }
+
+.content-container--LRmax {
+      @extend .content-container;
+      margin-top: 2rem;
+      min-width: 28rem;
+      max-width: 110rem;
+}
+
+%flexi {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  
+  .flexi--center {
+    @extend %flexi;
+    justify-content: center;
+  }
+  
+  
+  .flexi--align-low {
+    @extend %flexi;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+  
+  
+  
+  .flexi--column { 
+    @extend %flexi;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  

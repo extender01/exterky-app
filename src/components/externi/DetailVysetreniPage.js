@@ -51,7 +51,7 @@ export class DetailVysetreniPage extends React.Component {
     const {vv} = this.props;  //desctructuring, abychom nemuseli vsude psat this.props.vv ...
    
     return (
-      <div className="hlavni">
+      <div className="content-container--LRmax">
 
       <div className="flex-container">
         <Nazev nazev={vv.nazev} classNames="box barvaNazev g1"/>
@@ -76,11 +76,12 @@ export class DetailVysetreniPage extends React.Component {
         <Preanal preanal={vv.preanal} classNames="box barvaPreanal g1" />
       </div>
 
+     {this.whoLogged() !== "lab" &&
       <div className="flex-container">
         <Poznamka poznamka={vv.poznamka} classNames="box barvaPoznamka g1" />
         {this.whoLogged() && <PoznOdd vysID={this.props.match.params.id} whoLogged={this.whoLogged()} classNames="box barvaPoznamkaOdd g1" />}
-        
       </div>
+    }
       
       {this.whoLogged()==="lab" && 
         <div className="flex-container">

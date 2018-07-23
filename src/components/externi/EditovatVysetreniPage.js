@@ -20,7 +20,7 @@ export class EditovatVysetreniPage extends React.Component {
     render() {
         return (
             <div>
-            Edituj lab vysetreni s id:  {this.props.vybraneVysetreni.id}
+            <p>Edituj lab vysetreni s id:  {this.props.vybraneVysetreni.id} a nazvem: {this.props.vybraneVysetreni.nazev} </p>
         
                 <VysetreniForm 
                     vysetreniProEditaci={this.props.vybraneVysetreni}
